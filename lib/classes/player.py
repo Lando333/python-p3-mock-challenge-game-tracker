@@ -9,6 +9,7 @@ class Player:
         
     def results(self, new_result=None):
         from classes.result import Result
+        
         pass
     
     def games_played(self, new_game=None):
@@ -24,4 +25,15 @@ class Player:
     @classmethod
     def highest_scored(cls, game):
         pass
-        
+    
+
+    def get_username(self):
+        return self._username
+
+    def set_username(self, name):
+        if 2 <= len(name) <= 16:
+            self._username = name
+        else:
+            print("Username must be between 2 and 16 characters.")
+    
+    username = property(get_username, set_username)
